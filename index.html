@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kenneth Marenco — Robotics Engineer</title>
+  <meta name="description" content="Robotics engineer working on autonomous vehicles, robot learning and edge AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top">km<span>_</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="intro">
+        <p class="sys mono"><span class="dot" aria-hidden="true"></span>System online</p>
+        <h1>Kenneth Marenco</h1>
+        <!-- Edit the list of titles in data-roles (separated by |) -->
+        <p class="role mono">
+          <span class="sr-only">Robotics engineer</span>
+          <span aria-hidden="true">&gt; <span id="role" data-roles="robotics engineer|software engineer|AI engineer|R&amp;D engineer|mechanical engineer|network engineer|systems engineer|full stack engineer">robotics engineer</span><span class="cursor">_</span></span>
+        </p>
+        <p class="lead">I build the software that lets machines perceive, plan and act in the real world, from off-road autonomous vehicles to robots that learn new skills from human demonstrations.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View projects</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+        <ul class="stats mono">
+          <li><b>2</b> US patents</li>
+          <li><b>Honda R&amp;D</b> Americas</li>
+          <li><b>Duke</b> B.S.E. </li>
+          <li><b>Georgia Tech</b> M.S. CS</li>
+        </ul>
+      </div>
+
+      <div class="console">
+        <div class="console-head mono"><span>Autonomy sandbox</span><span class="head-right"><span id="hud-mode">Mode · booting</span><button id="pause" type="button" aria-pressed="false">Pause</button></span></div>
+        <div class="viewport">
+          <canvas id="world" tabindex="0" aria-label="Autonomy sandbox. A robot maps the area with lidar. Use the mission buttons below the map to send it to a project; it opens that project when it arrives. Click the map to add or remove obstacles. With the map focused, drive with W A S D or the arrow keys."></canvas>
+        </div>
+        <div class="telemetry mono" aria-hidden="true">
+          <div><span>Speed</span><b id="t-spd">0.0 m/s</b></div>
+          <div><span>Heading</span><b id="t-hdg">000°</b></div>
+          <div><span>Mapped</span><b id="t-map">0%</b></div>
+          <div><span>Replans</span><b id="t-rep">0</b></div>
+          <div><span>Nodes</span><b id="t-nodes">0</b></div>
+          <div><span>Demo cells</span><b id="t-demo">0</b></div>
+        </div>
+        <div class="missions" id="missions"><span class="mono label">Missions</span></div>
+        <p class="hint">
+          Send the robot to a project and it maps the site with lidar on the way, replanning around anything new it finds. Click the map to drop obstacles. Click the map, then drive with <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>: the planner learns to prefer the routes you demonstrate.
+        </p>
+        <ul class="legend mono" aria-hidden="true">
+          <li><i class="sw sw-obs"></i>mapped obstacle</li>
+          <li><i class="sw sw-path"></i>planned path</li>
+          <li><i class="sw sw-demo"></i>learned from your driving</li>
+          <li><i class="sw sw-wp"></i>project</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2><span class="mono">01</span> About</h2>
+      <div class="about-grid">
+        <div>
+          <p>I'm a Senior Software and Systems Development Engineer at Honda R&amp;D Americas, where I work across the autonomy stack for off-road autonomous vehicles: simulation, perception and obstacle detection, navigation and path planning, and the cloud backend services that tie it all together into scalable solutions.</p>
+          <p>I also co-founded Level AI, a physical AI startup, where I led the hardware and data work: wearable camera rigs on Jetson that recorded skilled construction work from the worker's point of view, to train robots by imitation learning.</p>
+          <p>Robotics started early for me, with FIRST Robotics in high school. While still a student at Duke, I joined BotBuilt as a founding engineer and built its entire system for automated prefabricated wall panels. From there I updated robotic manufacturing at AKG before moving into autonomy at Honda. At home I run a robot arm testbed for imitation-learning policies, a GPU home lab and a small machine shop.</p>
+        </div>
+        <div class="skills">
+          <h3 class="mono">stack</h3>
+          <div class="chips">
+            <span>ROS / ROS 2</span><span>Path planning</span><span>Obstacle detection</span><span>SLAM</span>
+            <span>Imitation learning</span><span>VLA models</span><span>Jetson</span><span>CUDA</span>
+            <span>Python</span><span>C++</span><span>Linux</span><span>Docker</span>
+            <span>Cloud backend</span><span>DevOps</span><span>Networking</span><span>Machining</span><span>3D printing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2><span class="mono">02</span> Projects</h2>
+      <div class="filters mono" id="filters">
+        <button class="active" data-filter="all">all</button>
+        <button data-filter="industry">industry</button>
+        <button data-filter="startup">startup</button>
+        <button data-filter="personal">personal</button>
+      </div>
+      <div class="grid" id="grid"></div>
+      <!-- <p class="note mono">Some work is under NDA, so details are intentionally high-level.</p> -->
+    </section>
+
+    <section id="experience" class="section">
+      <h2><span class="mono">03</span> Experience</h2>
+      <ol class="timeline">
+        <li>
+          <span class="mono when">Present</span>
+          <h3>Senior Software &amp; Systems Development Engineer &middot; Honda R&amp;D Americas</h3>
+          <p>Simulation, perception, navigation and cloud backend services for off-road autonomous vehicles. Design lead for an autonomous vehicle program.</p>
+        </li>
+        <li>
+          <span class="mono when">Previously</span>
+          <h3>Co-founder &amp; Technical Lead &middot; Level AI</h3>
+          <p>Egocentric data collection for construction robot learning: designed the wearable capture rig, the edge-to-cloud data pipeline and the hand-retargeting approach.</p>
+        </li>
+        <li>
+          <span class="mono when">Previously</span>
+          <h3>Manufacturing Engineer &middot; AKG of America</h3>
+          <p>Reducing cycle times and expanding robot cell capabilities to increase throughput.</p>
+        </li>
+        <li>
+          <span class="mono when">Previously</span>
+          <h3>Founding Engineer &middot; BotBuilt</h3>
+          <p>Founding engineer, starting while still a student at Duke and continuing full-time after graduation. Built the entire system for automated prefabricated wall panels; inventor on two US patents.</p>
+        </li>
+        <li>
+          <span class="mono when">Education</span>
+          <h3>Duke University &middot; B.S.E. Mechanical Engineering &amp; Materials Science, 2021</h3>
+          <p>Smart Archaeology project: autonomous 3D site mapping with ROS and computer vision.</p>
+        </li>
+        <li>
+          <span class="mono when">In progress</span>
+          <h3>Georgia Institute of Technology &middot; M.S. Computer Science</h3>
+        </li>
+      </ol>
+    </section>
+
+    <section id="contact" class="section">
+      <h2><span class="mono">04</span> Contact</h2>
+      <p>Open to conversations about autonomy, robotics and physical AI.</p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/kenneth-marenco" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="https://github.com/Kem98m" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3z"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mono">&copy; <span id="yr"></span> Kenneth Marenco</footer>
+
+  <!-- Project modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="close" id="close" aria-label="Close">&times;</button>
+      <div class="detail">
+        <p class="mono kicker" id="m-kicker"></p>
+        <h3 id="m-title"></h3>
+        <p id="m-body"></p>
+        <ul id="m-points"></ul>
+        <div class="chips" id="m-tags"></div>
+        <div class="links" id="m-links"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
+  <script src="world.js"></script>
+</body>
+</html>
